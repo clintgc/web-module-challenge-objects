@@ -87,8 +87,9 @@ Using the reviews array above do the following:
 */
 function addReviews(name, rating, feedback)
 {
-  reviews.push({name, rating, feedback});
-  return reviews;
+  let copyReviews = [...reviews]
+  copyReviews.push({name, rating, feedback});
+  return copyReviews;
 }
 console.log(addReviews("Clint", 2, "The Lambda cafeteria is worse than prison food"))
 
@@ -123,9 +124,6 @@ function getReviewByIndex(arr, index)
 console.log(getReviewByIndex(reviews, 1));
 
 
-
-  
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Write a function to get information about the most recent (last) review called `getLastReview`
 
@@ -137,9 +135,12 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(arr) 
+{
+  const lastIndex = arr[(arr.length-1)];
+  return `${lastIndex.name} gave the restaurant a ${lastIndex.rating} star review, and their feedback was: ${lastIndex.feedback}`;
 } 
+console.log(getLastReview(reviews));
 
 
 
